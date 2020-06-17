@@ -21,15 +21,16 @@ def key_points(img):
     PREDICTOR_PATH = "shape_predictor_68_face_landmarks.dat"
     predictor = dlib.shape_predictor(PREDICTOR_PATH)
 
-    for i in range(len(rects)):
-        landmarks = np.matrix([[p.x,p.y] for p in predictor(img,rects[i]).parts()])
-        maxv = np.amax(landmarks, axis=0)
-        minv = np.amin(landmarks, axis=0)
-        img = img.copy()
-        for idx, point in enumerate(landmarks):
-            pos = (point[0,0],point[0,1])
-            points_keys.append(pos)
-            cv2.circle(img,pos,2,(255,0,0),-1)
+    # for i in range(len(rects)):
+    # len(rects)代表人脸个数
+    landmarks = np.matrix([[p.x,p.y] for p in predictor(img,rects[0]).parts()])
+    maxv = np.amax(landmarks, axis=0)
+    minv = np.amin(landmarks, axis=0)
+    img = img.copy()
+    for idx, point in enumerate(landmarks):
+        pos = (point[0,0],point[0,1])
+        points_keys.append(pos)
+        cv2.circle(img,pos,2,(255,0,0),-1)
     return img, maxv, minv
 
 
