@@ -8,12 +8,12 @@ import torch.nn as nn
 from skimage.transform import resize
 
 
-detector = dlib.get_frontal_face_detector()
 # image = cv2.imread('./test_pic/AF1.jpg')
 # image = cv2.imread('./test_pic/AF1675.jpg')
 # image = cv2.imread('./test_pic/a.png')
 # image = cv2.imread('./test_pic/b.png')
 image = cv2.imread('./test_pic/c.png')
+detector = dlib.get_frontal_face_detector()
 rects = detector(image, 1)
 
 def key_points(img):
