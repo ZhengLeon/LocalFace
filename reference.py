@@ -21,6 +21,7 @@ def predict(image_path, model_path):
 	detector = dlib.get_frontal_face_detector()
 	image = cv2.imread(image_path)
 	b, g, r = cv2.split(image)
+	# opencv使用bgr格式 需要转换
 	image_rgb = cv2.merge([r, g, b])
 	rects = detector(image_rgb, 1)
 	if len(rects) >= 1:
