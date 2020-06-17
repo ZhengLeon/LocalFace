@@ -9,7 +9,7 @@ from skimage.transform import resize
 
 
 detector = dlib.get_frontal_face_detector()
-image = cv2.imread('./test_pic/b.png')
+image = cv2.imread('./test_pic/AF1675.jpg')
 b, g, r = cv2.split(image)
 image_rgb = cv2.merge([r, g, b])
 rects = detector(image_rgb, 1)
@@ -19,6 +19,7 @@ if len(rects) >= 1:
         lefttop_y = rect.top()
         rightbottom_x = rect.right()
         rightbottom_y = rect.bottom()
+        print(lefttop_x,lefttop_y,rightbottom_x,rightbottom_y)
         cv2.rectangle(image, (lefttop_x, lefttop_y), (rightbottom_x, rightbottom_y), (0, 255, 0), 2)
 
     cv2.namedWindow('result', cv2.WINDOW_AUTOSIZE)
