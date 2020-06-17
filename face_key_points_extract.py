@@ -23,5 +23,6 @@ frame=cv2.imread('./test_pic/b.png')
 # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 face_key = key_points(frame)
 cv2.imshow('frame',face_key)
-cv2.waitKey(10000) 
+cv2.waitKey(0) 
+cv2.destroyAllWindows()
 
