@@ -33,12 +33,12 @@ for pic in glob.glob(r'C:\Users\abc\Desktop\Global_Local_FBP\Images\*.jpg'):
         rightbottom_x = maxv.A[0][0]
         rightbottom_y = maxv.A[0][1]
         face = face_key[lefttop_y: rightbottom_y, lefttop_x: rightbottom_x] 
-        cv2.imwrite('./test_pic/face/'+pic,face)
+        cv2.imwrite('E:/datasets/faces/'+pic,face)
     else:
-        print(pic,"no face")
+        print(i, pic, "no face")
   
     i = i + 1
-    print(pic,i)
+    print(i, pic)
 
 
 

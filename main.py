@@ -12,7 +12,7 @@ from skimage.transform import resize
 # image = cv2.imread('./test_pic/AF1675.jpg')
 # image = cv2.imread('./test_pic/a.png')
 # image = cv2.imread('./test_pic/b.png')
-image = cv2.imread('./test_pic/c.png')
+image = cv2.imread('./test_pic/AF1053.jpg')
 detector = dlib.get_frontal_face_detector()
 rects = detector(image, 1)
 
