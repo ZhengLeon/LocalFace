@@ -30,21 +30,21 @@ for _, _, files in os.walk(root_path):
             maxv = np.amax(landmarks, axis=0)
             minv = np.amin(landmarks, axis=0)
             return img, maxv, minv
-        # print(pic)
-        # pic = pic.split('/')[6]
         if len(rects) > 0:
             face_key, maxv, minv = key_points(image)
-            lefttop_x = minv.A[0][0]
-            lefttop_y = minv.A[0][1]
+            lefttop_x = max(minv.A[0][0],0)
+            lefttop_y = max(minv.A[0][1], 0)
             rightbottom_x = maxv.A[0][0]
             rightbottom_y = maxv.A[0][1]
             face = face_key[lefttop_y: rightbottom_y, lefttop_x: rightbottom_x] 
-            cv2.imwrite('E:/datasets/faces/'+pic,face)
+            cv2.imwrite('E:/datasets/faces/'+ pic,face)
         else:
             print(i, pic, "no face")
     
         i = i + 1
         print(i, pic)
+
+
 
 
 
